@@ -48,9 +48,9 @@ function mySet(){
     }
 
     this.union = function(otherSet){
-        var unionSet = new Set();
-        var firstSet = this.values();
-        var secondSet = otherSet.values();
+        let unionSet = new Set();
+        let firstSet = this.values();
+        let secondSet = otherSet.values();
         firstSet.forEach(function(e){
             unionSet.add(e);
         })
@@ -58,5 +58,34 @@ function mySet(){
             unionSet.add(e);
         })
         return unionSet;
+    }
+
+    this.intersection = function(otherSet){
+        let intersectionSet = new mySet();
+        let firstSet = this.values();
+        firstSet.forEach(function(e){
+            if(otherSet.has(e)){
+                intersectionSet.add(e);
+            }
+        })
+        return intersectionSet;
+    }
+
+    this.difference = function(otherSet){
+        let differenceSet = new Set();
+        let firstSet = this.values();
+        firstSet.forEach(function(e){
+            if(!otherSet.has(e)){
+                differenceSet.add(e);
+            }
+        })
+        return differenceSet;
+    }
+
+    this.subset = function(othersSet){
+        let firstSet = this.values();
+        return firstSet.every(function(value){
+            return otherSet.has(value);
+        })
     }
 }
