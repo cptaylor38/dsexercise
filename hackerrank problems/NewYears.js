@@ -31,23 +31,23 @@ let result;
 let message;
 // Complete the minimumBribes function below.
 function minimumBribes(q) {
-   arrays.push(q);
-   if(arrays.length > 1){
-       for(let num of arrays[1]){
-           if(arrays[0].indexOf(num) > arrays[1].indexOf(num)){
-               if((arrays[0].indexOf(num) - arrays[1].indexOf(num)) > 2){
-                   message = 'Too chaotic';
-               }
-               else {
-                   bribes += arrays[0].indexOf(num) - arrays[1].indexOf(num);
-                   result = bribes;
-               }
-           }
-       }
-       message ? console.log(message) : null;
-       console.log(result);
-   }
-}
+    arrays.push(q);
+    if(arrays.length > 1){
+        let unsorted = arrays[1];
+        let sorted = arrays[0].sort();
+        for(let num of arrays[1]){
+            if(unsorted.indexOf(num) > sorted.indexOf(num)){
+                bribes += Math.abs(unsorted.indexOf(num) - sorted.indexOf(num))
+            }
+            if(bribes > 2) break;
+        }
+        if(bribes > 2){
+             console.log(bribes);
+             console.log('Too chaotic');
+        }
+        else console.log(bribes);
+    }
+ }
 
 
 function main() {
