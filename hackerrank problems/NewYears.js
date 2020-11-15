@@ -31,23 +31,38 @@ let result;
 let message;
 // Complete the minimumBribes function below.
 function minimumBribes(q) {
-    arrays.push(q);
-    if(arrays.length > 1){
-        let unsorted = arrays[1];
-        let sorted = arrays[0].sort();
-        for(let num of arrays[1]){
-            if(unsorted.indexOf(num) > sorted.indexOf(num)){
-                bribes += Math.abs(unsorted.indexOf(num) - sorted.indexOf(num))
+    let bribes = 0;
+    let tooChaotic = false;
+    for(let i = 0; i<q.length; i++){
+        let ci = q[i] - 1;
+        //2, 1, 5, 3, 4,
+        if(i < ci){
+            // if 0 < 1;
+            //if 2 < 4.
+            if((ci - i) > 2){
+               //if 4 - 2 = 2 > 2. 
+               tooChaotic = true;
+                break;
             }
-            if(bribes > 2) break;
+            else{
+                bribes += ci - i;
+                // bribes + 1 - 0 = 1. bribes = 1;
+                //bribes + 4 - 2 = 2. bribes = 3;
+            }
         }
-        if(bribes > 2){
-             console.log(bribes);
-             console.log('Too chaotic');
+        if(i > ci){
+            //if 1 > 0
+            //if 3 > 2.
+            //if 4 > 3.
+            bribes += i - q[i];
+            //bribes + 1 - 1 = 0. bribes = 1;
+            //bribes + 3 - 3 = 0. bribes = 3;
+            //bribes + 4 - 4 = 0. bribes = 3;
         }
-        else console.log(bribes);
+
     }
- }
+    tooChaotic = true ? console.log('Too chaotic') : console.log(bribes);
+}
 
 
 function main() {
