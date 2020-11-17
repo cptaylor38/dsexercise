@@ -32,36 +32,32 @@ let message;
 // Complete the minimumBribes function below.
 function minimumBribes(q) {
     let bribes = 0;
-    let tooChaotic = false;
     for(let i = 0; i<q.length; i++){
+        //1 2 5 3 4 7 8 6 9
         let ci = q[i] - 1;
-        //2, 1, 5, 3, 4,
         if(i < ci){
-            // if 0 < 1;
-            //if 2 < 4.
             if((ci - i) > 2){
-               //if 4 - 2 = 2 > 2. 
-               tooChaotic = true;
-                break;
+               return console.log('Too chaotic');
             }
             else{
                 bribes += ci - i;
-                // bribes + 1 - 0 = 1. bribes = 1;
-                //bribes + 4 - 2 = 2. bribes = 3;
+                console.log('i= ' + i, 'ci= ' + ci, 'bribes= ' + bribes)
             }
         }
-        if(i > ci){
-            //if 1 > 0
-            //if 3 > 2.
-            //if 4 > 3.
-            bribes += i - q[i];
-            //bribes + 1 - 1 = 0. bribes = 1;
-            //bribes + 3 - 3 = 0. bribes = 3;
-            //bribes + 4 - 4 = 0. bribes = 3;
+        else if(i > ci){
+            //if(7 > 5)
+            console.log(`${i} > ${ci}`)
+            if(i !== q[i]){ 
+                //if(7 !== 6)
+                console.log(`${i} !== ${q[i]}`)
+                bribes += q[i] - ci;
+                //bribes += 6 - 5. bribes = +1;
+                console.log(`bribes += ${q[i]} - ${ci} and bribes = ${bribes}`)
+            }
         }
-
+        console.log('index = ' + i, 'bribes = ' + bribes)
     }
-    tooChaotic = true ? console.log('Too chaotic') : console.log(bribes);
+    console.log(bribes);
 }
 
 
