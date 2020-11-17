@@ -57,21 +57,17 @@ if(i < ci){
 
 function minimumBribes(q) {
     let bribes = 0;
-    let lowest;
-    //2 1 5 3 4
-    for(let i = q.length; i>0; i--){ //
-       //working backwords, see how many numbers are greater than q[i] and add to bribes
-       //if q[i] - lowest index > 2. then too chaotic?
-       if(!lowest) lowest = q[i];
-       else{
-           if(q[i] > lowest){
-               if(q[i] - lowest > 2) return console.log('Too chaotic');
-               else bribes += 1;
+    let count = 0;
+    //1 2 5 3 7 8 6 4
+   for(let i = q.length; i>0; i--){ 
+       //i = 8;
+       for(let j = 0; j < i; j++){
+           if(q[i] < q[j]){
+               //whatever I need to put here to check for attempt number 9999999999999
+               else bribes+= 1;
            }
-           else lowest = q[i];
        }
-       
-    }
+   }
     console.log(bribes);
 }
 
