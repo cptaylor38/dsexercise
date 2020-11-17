@@ -30,32 +30,47 @@ let bribes = 0;
 let result;
 let message;
 // Complete the minimumBribes function below.
+if(i < ci){
+    //if (2 < 4)
+    //if (5 < 6)
+    //if(6 < 7)
+    if((ci - i) > 2){
+       return console.log('Too chaotic');
+    }
+    else{
+        if(ci - i === 1){ //if 4 - 2 = 1
+        //if(6 - 5 = 1)
+        //if(7 - 6 = 1)
+            if(q[i] > q[i+2]) bribes += 2;
+            //bribes += 2. bribes = 4;
+            //bribes +=2. bribes = 6;
+        }
+        else bribes += ci - i;
+        //bribes += 4 - 2 = 2. bribes = 2;
+    }
+}
+
+
+
+
+
+
 function minimumBribes(q) {
     let bribes = 0;
-    for(let i = 0; i<q.length; i++){
-        //1 2 5 3 4 7 8 6 9
-        let ci = q[i] - 1;
-        if(i < ci){
-            if((ci - i) > 2){
-               return console.log('Too chaotic');
-            }
-            else{
-                bribes += ci - i;
-                console.log('i= ' + i, 'ci= ' + ci, 'bribes= ' + bribes)
-            }
-        }
-        else if(i > ci){
-            //if(7 > 5)
-            console.log(`${i} > ${ci}`)
-            if(i !== q[i]){ 
-                //if(7 !== 6)
-                console.log(`${i} !== ${q[i]}`)
-                bribes += q[i] - ci;
-                //bribes += 6 - 5. bribes = +1;
-                console.log(`bribes += ${q[i]} - ${ci} and bribes = ${bribes}`)
-            }
-        }
-        console.log('index = ' + i, 'bribes = ' + bribes)
+    let lowest;
+    //2 1 5 3 4
+    for(let i = q.length; i>0; i--){ //
+       //working backwords, see how many numbers are greater than q[i] and add to bribes
+       //if q[i] - lowest index > 2. then too chaotic?
+       if(!lowest) lowest = q[i];
+       else{
+           if(q[i] > lowest){
+               if(q[i] - lowest > 2) return console.log('Too chaotic');
+               else bribes += 1;
+           }
+           else lowest = q[i];
+       }
+       
     }
     console.log(bribes);
 }
