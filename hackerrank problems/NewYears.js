@@ -56,15 +56,15 @@ if(i < ci){
 
 
 function minimumBribes(q) {
+    // need to optimize. exceeded time limit on 4 tests. figure out how to rewrite this
+    //to O(n) at least.
     let bribes = 0;
     let count = 0;
-    //1 2 5 3 7 8 6 4
-   for(let i = q.length; i>0; i--){ 
-       //i = 8;
-       for(let j = 0; j < i; j++){
-           if(q[i] < q[j]){
-               //whatever I need to put here to check for attempt number 9999999999999
-               else bribes+= 1;
+   for(let i = q.length; i >= 0; i--){ 
+       if((q[i] - 1) - i > 2) return console.log('Too chaotic');
+       for(let j = 0; j < i; j++){ 
+           if(q[i] < q[j]){ 
+               bribes += 1;
            }
        }
    }
