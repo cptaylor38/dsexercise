@@ -59,7 +59,6 @@ function minimumBribes(q) {
     // need to optimize. exceeded time limit on 4 tests. figure out how to rewrite this
     //to O(n) at least.
     let bribes = 0;
-    let count = 0;
    for(let i = q.length; i >= 0; i--){ 
        if((q[i] - 1) - i > 2) return console.log('Too chaotic');
        for(let j = 0; j < i; j++){ 
