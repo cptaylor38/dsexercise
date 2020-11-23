@@ -26,20 +26,19 @@ function readLine() {
 
 // Complete the repeatedString function below.
 function repeatedString(s, n) {
+    let matches = 0;
     let count = 0;
-    let i = 0;
-    let si = 0;
-    if(s.length === 1){
-        if(s === 'a') return n;
+    let remainder = n % s.length;
+    if(s.length === 1 && s[0] === 'a') return n;
+    
+    for(let i = 0; i < s.length; i++){
+        if(s[i] === 'a') matches++;
     }
-    else{
-        while(i < n){
-            if(s[si] === 'a') count++;
-            i++;
-            si++;
-            if(si === s.length) si = 0;
-        }
+    for(let i = 0; i< remainder; i++){
+        if(s[i] === 'a') count++;
     }
+    
+    count += (((n - remainder) / s.length) * matches);
     return count;
 }
 
