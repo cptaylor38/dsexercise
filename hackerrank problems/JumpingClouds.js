@@ -26,21 +26,39 @@ function readLine() {
 
 // Complete the jumpingOnClouds function below.
 function jumpingOnClouds(c) {
+    // let position = 0;
+    // let count = 0;
+    // console.log(c);
+    // while(position !== c.length - 1){
+    //     if(c[position + 2] !== 1){
+    //         position = position + 2;
+    //         count++;
+    //     }
+    //     else if(c[position + 2] === 1){
+    //         position = position + 1;
+    //         count++;
+    //     }
+    // }
+    // return count;
+    //exceeded time limits - devising new strat
+
+
     let position = 0;
-    let count = 0;
-    console.log(c);
-    while(position !== c.length - 1){
-        if(c[position + 2] !== 1){
-            position = position + 2;
-            count++;
+    let jumps = 0;
+    
+    while(position < c.length - 1){
+        if(c[position + 2] === 1){
+            position += 1;
+            jumps++;
         }
-        else if(c[position + 2] === 1){
-            position = position + 1;
-            count++;
+        else {
+            position += 2;
+            jumps++;
         }
     }
-    return count;
-    //exceeded time limits - devising new strat
+    return jumps;
+    //successful!
+    //difference between them? else versus else if - running an unnecessary if with else if
 
 }
 
