@@ -31,7 +31,7 @@ function jumpingOnClouds(c) {
     // console.log(c);
     // while(position !== c.length - 1){
     //     if(c[position + 2] !== 1){
-    //         position = position + 2;
+    //         position = position + 2;//position = 4
     //         count++;
     //     }
     //     else if(c[position + 2] === 1){
