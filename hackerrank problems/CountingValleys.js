@@ -35,21 +35,34 @@ function countingValleys(steps, path) {
     // Write your code here
     //UDDDUDUU
     //1,0,-1,-2,-1,-2,-1,0
+//     let valleys = 0;
+//    let seaLevel = 0;
+//     for(let char of path){
+//      if(char === 'U'){
+//          if(seaLevel + 1 === 0) valleys++;
+//          seaLevel++;
+//      }
+//      else seaLevel--;
+     
+//      console.log('sealevel', seaLevel);
+//     }
+    
+//     return valleys;
+
+    //not passing time constraints. rethinking approach
+
+    //Faster approached that passed time constraints
     let valleys = 0;
    let seaLevel = 0;
     for(let char of path){
-     if(char === 'U'){
+     if(char === 'D') seaLevel--;
+     else if(char === 'U' && seaLevel + 1 === 0){
          if(seaLevel + 1 === 0) valleys++;
          seaLevel++;
      }
-     else seaLevel--;
-     
-     console.log('sealevel', seaLevel);
+     else seaLevel++;
     }
-    
     return valleys;
-
-    //not passing time constraints. rethinking approach
 }
 
 function main() {
