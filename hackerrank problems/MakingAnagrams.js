@@ -66,6 +66,33 @@ function makeAnagram(a, b) {
     // return arrA.length + arrB.length;
 
     //2 test cases passed
+
+// <----------------------------------------------------------------------->
+    if(a === b) return a.length;
+    let arrA = a.split('').sort();
+    let arrB = b.split('').sort();
+
+    if(a.length > b.length || a.length === b.length){
+        for(let char of b){
+            if(arrA.includes(char)){
+                arrA.splice(arrA.indexOf(char), 1);
+                arrB.splice(arrB.indexOf(char), 1);
+            }
+        }
+    }
+
+    if(b.length > a.length){
+        for(let char of a){
+            if(arrB.includes(char)){
+                arrA.splice(arrA.indexOf(char), 1);
+                arrB.splice(arrB.indexOf(char), 1);
+            }
+        }
+    }
+
+    return arrA.length + arrB.length;
+
+    // a bit slow but passed all tests. forgot to check for equal array input lengths
 }
 
 function main() {
