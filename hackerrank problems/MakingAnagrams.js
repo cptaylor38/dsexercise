@@ -26,18 +26,46 @@ function readLine() {
 
 // Complete the makeAnagram function below.
 function makeAnagram(a, b) {
-    if(a === b) return a.length;
+    // if(a === b) return a.length;
     
-    if(a.length > b.length){
-        for(let char of a){
-            if(b.includes(char)){
-                b.split(' ').splice(b.indexOf(char)).join('')
-            }
-        }
-    }
-    return b.length;
+    // if(a.length > b.length){
+    //     for(let char of a){
+    //         if(b.includes(char)){
+    //             b.split(' ').splice(b.indexOf(char)).join('')
+    //         }
+    //     }
+    // }
+    // return b.length;
 
     //1 test case. 
+
+// <-------------------------------------------------------------------->
+
+    // if(a === b) return a.length;
+    // let arrA = a.split('').sort();
+    // let arrB = b.split('').sort();
+    
+    // if(a.length > b.length){
+    //     for(let char of b){
+    //         if(arrA.includes(char)){
+    //             arrA.splice(arrA.indexOf(char), 1);
+    //             arrB.splice(arrB.indexOf(char), 1);
+    //         }
+    //     }
+    // }
+    
+    // if(b.length > a.length){
+    //     for(let char of a){
+    //         if(arrB.includes(char)){
+    //             arrA.splice(arrA.indexOf(char), 1);
+    //             arrB.splice(arrB.indexOf(char), 1);
+    //         }
+    //     }
+    // }
+    
+    // return arrA.length + arrB.length;
+
+    //2 test cases passed
 }
 
 function main() {
