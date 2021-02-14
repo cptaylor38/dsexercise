@@ -10,25 +10,39 @@ let string = 'abcbaba';
 let stringLength = string.length;
 
 function substrCount(n, s) {
-    let knownSubstrings = 0;
-    let substring = '';
+    let count = n;
     for(let i = 0; i < s.length; i++){
-        substring = '';
-        for(let j = i; j< s.length; j++){
-            substring += s[j];
-            if(s[j] === s[i]){ 
-                if(substringCheck(substring)){ 
-                    knownSubstrings++; 
-                }
-            }
+        for(let j = i + 1; j < s.length; j++){
+             if(s[j] === s[j - 1]) count++;
+             else {
+                 if(s[j + 1] === s[i]) count++;
+                 else break;
+             }
         }
     }
-    return knownSubstrings;
-}
+    return count;
+ }
 
-function substringCheck(ss){
-    if(ss.length === 1) return true;
-    if(count >= ss.length - 1) return true;
-}
+// function substrCount(n, s) {
+//     let knownSubstrings = 0;
+//     let substring = '';
+//     for(let i = 0; i < s.length; i++){
+//         substring = '';
+//         for(let j = i; j< s.length; j++){
+//             substring += s[j];
+//             if(s[j] === s[i]){ 
+//                 if(substringCheck(substring)){ 
+//                     knownSubstrings++; 
+//                 }
+//             }
+//         }
+//     }
+//     return knownSubstrings;
+// }
+
+// function substringCheck(ss){
+//     if(ss.length === 1) return true;
+//     if(count >= ss.length - 1) return true;
+// }
 
 console.log(substrCount(stringLength, string))
