@@ -31,8 +31,10 @@ function substringCheck(ss){
     for(let char of ss){
         if(char === ss[0]) matches.push(char);
     }
+    if(ss.length === 1) return true;
+    if(ss.length === matches.length) return true;
     if(matches.length !== ss.length - 1){
-        console.log(matches.length, ss.length - 1, matches);
+        console.log('number of matches: ' + matches.length, 'number of characters in string : ' + (ss.length - 1), matches);
         return false;
     }
     return ss === ss.split('').reverse().join('');
