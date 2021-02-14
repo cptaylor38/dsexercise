@@ -27,17 +27,8 @@ function substrCount(n, s) {
 }
 
 function substringCheck(ss){
-    let matches = []
-    for(let char of ss){
-        if(char === ss[0]) matches.push(char);
-    }
     if(ss.length === 1) return true;
-    if(ss.length === matches.length) return true;
-    if(matches.length !== ss.length - 1){
-        console.log('number of matches: ' + matches.length, 'number of characters in string : ' + (ss.length - 1), matches);
-        return false;
-    }
-    return ss === ss.split('').reverse().join('');
+    if(count >= ss.length - 1) return true;
 }
 
 console.log(substrCount(stringLength, string))
