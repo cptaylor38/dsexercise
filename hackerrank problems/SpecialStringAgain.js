@@ -6,29 +6,36 @@ let url = 'https://www.hackerrank.com/challenges/special-palindrome-again/proble
 // All characters except the middle one are the same, e.g. aadaa.
 // A special substring is any substring of a string which meets one of those criteria. Given a string, determine how many special substrings can be formed from it.
 
-let s = 'asjajaefeaek';
-let n = s.length;
+let string = 'abcbaba';
+let stringLength = string.length;
 
 function substrCount(n, s) {
-    let knownSubstrings;
+    let knownSubstrings = 0;
     let substring = '';
     for(let i = 0; i < s.length; i++){
-        //init character to compare to
         substring = '';
         for(let j = i; j< s.length; j++){
-            substring += s[j]; //stringbuilder for current substring
-            if(s[j] === s[i]){ //stopping stringbuilder if looped char equals initChar
-                if(substringCheck(substring)){ //if string built is palindrome
-                    knownSubstrings++; //special substrings++
+            substring += s[j];
+            if(s[j] === s[i]){ 
+                if(substringCheck(substring)){ 
+                    knownSubstrings++; 
                 }
             }
         }
     }
-    
+    return knownSubstrings;
 }
 
-function substringCheck(string  ){
-    return string === string.split('').reverse().join();
+function substringCheck(ss){
+    let matches = []
+    for(let char of ss){
+        if(char === ss[0]) matches.push(char);
+    }
+    if(matches.length !== ss.length - 1){
+        console.log(matches.length, ss.length - 1, matches);
+        return false;
+    }
+    return ss === ss.split('').reverse().join('');
 }
 
-substrCount(n, s);
+console.log(substrCount(stringLength, string))
