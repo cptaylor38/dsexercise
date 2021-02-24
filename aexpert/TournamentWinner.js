@@ -54,6 +54,6 @@ function tournamentWinner(competitions, results) {
       }
       
     return tWinner.name;
-  }
+  } 
   
   
