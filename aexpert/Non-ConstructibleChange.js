@@ -42,12 +42,14 @@
 
 //Correct Solution
 // function nonConstructibleChange(coins) {
+        //my sort wasn't correctly sorting (coins.sort()), forgot sort without specification converts to strings and 
+                //  sorts them. Doesn't sort the actual values.
 //     coins.sort((a,b)=> a - b);
           
 //       let sum = 0;
 //       for(let coin of coins){
-//           if(coin > sum + 1) return sum + 1;
-//           sum += coin;
+    //      if(coin > sum + 1) return sum + 1;
+//          sum += coin;
 //       }
 //       return sum + 1;
 //   }
